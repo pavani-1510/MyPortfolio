@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Pavani - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e2e2e2;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            background: linear-gradient(135deg, #ff6f61, #d87d9e);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffe600;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff; /* Set text color to white */
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            color: #fff; /* Ensure text remains white on hover */
+        }
+
+        .btn-secondary {
+            background-color: #FFB4C2;
+            color: #fff; /* Set text color to white */
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker shade on hover */
+            color: #000; /* Ensure text remains white on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://wallpapers.com/images/high/coding-background-zmygixkpkncbe0hs.webp') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin: 0;
+            animation: fadeInUp 1.5s ease;
+            font-weight: 700;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+
+        .hero .links {
+            margin-top: 20px;
+        }
+
+        .hero .links a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .hero .links a:hover {
+            color: #ffe600;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            position: relative;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #ff6f61;
+            border-bottom: 3px solid #ff6f61;
+            display: inline-block;
+            padding-bottom: 10px;
+            animation: slideIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* Enhanced Card Styles */
+        .projects-list, .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .projects-list .card, .certifications-list .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .projects-list .card:hover, .certifications-list .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .projects-list .card img, .certifications-list .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .projects-list .card-body, .certifications-list .card-body {
+            padding: 20px;
+        }
+
+        .projects-list .card-title, .certifications-list .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .projects-list a, .certifications-list a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .projects-list a:hover, .certifications-list a:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6f61, #d87d9e);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 30px;
+        }
+
+        footer .contact-info {
+            margin: 20px 0;
+        }
+
+        footer .contact-info li {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #ffe600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .projects-list .card img, .certifications-list .card img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/">About</a>
+        <a href="/#skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/certifications">Certifications</a>
+        <a href="/#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>R Pavani</h1>
+    <div class="links">
+        <a href="https://www.linkedin.com/in/r-pavani-kangundi/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/pavani-1510" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://drive.usercontent.google.com/u/0/uc?id=1HRjRdBX3SiqtrdM7Hxpaosp9X9goEqs3&export=download" class="button button--flex">Download Resume  <i class="fas fa-download button__icon"></i></a>
+
+    </div>
+</div>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-list">
+            {% for project in projects %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <a href="{{ project.github_url }}" target="_blank" class="btn btn-secondary">GitHub Link</a>
+                        {% if project.live_page_url %}
+                            <a href="{{ project.live_page_url }}" target="_blank" class="btn btn-secondary">Live Page Link</a>
+                        {% endif %}
+                        <p class="mt-2 text-muted">{{ project.tech_stack }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 R Pavani. All rights reserved.</p>
+    <div class="contact-info">
+        <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:pavanikangundi@gmail.com">pavanikangundi@gmail.com</a></li>
+            <li><i class="fas fa-map-marker-alt"></i>Mangalagiri,India</li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
